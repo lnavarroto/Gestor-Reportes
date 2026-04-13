@@ -1,0 +1,21 @@
+# ── Dependencias ─────────────────────────────────────────
+node_modules/
+**/node_modules/
+
+# ── Variables de entorno (NUNCA subas .env con secretos) ─
+.env
+**/.env
+
+# ── Build del frontend ───────────────────────────────────
+frontend/build/
+
+# ── Logs ─────────────────────────────────────────────────
+*.log
+npm-debug.log*
+
+# ── OS ───────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Editor ───────────────────────────────────────────────
+.vscode/

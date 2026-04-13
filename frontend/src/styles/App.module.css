@@ -1,0 +1,2043 @@
+﻿:root {
+  --bg-paper: #f8f3ea;
+  --bg-warm: #f2eadf;
+  --ink-900: #1e1b18;
+  --ink-700: #4c4038;
+  --ink-500: #7f7065;
+  --line-soft: rgba(46, 38, 31, 0.14);
+  --line-strong: rgba(46, 38, 31, 0.24);
+  --sun-500: #d88f28;
+  --sun-600: #bb7512;
+  --teal-500: #0c8c83;
+  --teal-600: #0b756e;
+  --brick-500: #b6492c;
+  --ok-500: #1f8f56;
+  --err-500: #9f2b2b;
+  --info-500: #245f9a;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 36px 18px 56px;
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  color: var(--ink-900);
+  background:
+    radial-gradient(1200px 400px at 15% -10%, rgba(216, 143, 40, 0.18), transparent 60%),
+    radial-gradient(1000px 420px at 100% 10%, rgba(12, 140, 131, 0.16), transparent 58%),
+    linear-gradient(165deg, var(--bg-paper), var(--bg-warm));
+  position: relative;
+}
+
+.bgOrbA,
+.bgOrbB {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgOrbA {
+  width: 280px;
+  height: 280px;
+  background: rgba(216, 143, 40, 0.2);
+  left: -90px;
+  top: 120px;
+}
+
+.bgOrbB {
+  width: 320px;
+  height: 320px;
+  background: rgba(12, 140, 131, 0.18);
+  right: -110px;
+  top: 320px;
+}
+
+.header,
+.stepsGrid,
+.layout,
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  margin-bottom: 18px;
+}
+
+.headerTopbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerBadge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.74rem;
+  letter-spacing: 0.09em;
+  font-weight: 800;
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--ink-900);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.18s ease;
+}
+
+.themeToggle:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.headerTitle {
+  margin: 14px 0 8px;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink-900);
+  font-weight: 900;
+}
+
+.headerSubtitle {
+  margin: 0;
+  color: #5a4a41;
+  max-width: 760px;
+  line-height: 1.55;
+  font-weight: 600;
+}
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stepCard {
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepProgress {
+  margin-top: 6px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(46, 38, 31, 0.14);
+  overflow: hidden;
+}
+
+.stepProgressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0c8c83, #d88f28);
+  transition: width 0.24s ease;
+}
+
+.stepId {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stepTitle {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.stepDone {
+  background: rgba(31, 143, 86, 0.12);
+  border-color: rgba(31, 143, 86, 0.35);
+}
+
+.stepActive {
+  background: rgba(216, 143, 40, 0.14);
+  border-color: rgba(216, 143, 40, 0.42);
+}
+
+.stepLocked {
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.card,
+.summaryCard {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  backdrop-filter: blur(10px);
+}
+
+.card {
+  padding: 26px;
+  box-shadow: 0 14px 36px rgba(30, 27, 24, 0.08);
+}
+
+.summaryCard {
+  padding: 20px;
+  position: sticky;
+  top: 18px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.sectionLabel {
+  margin: 0;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #6d5c50;
+  font-weight: 800;
+}
+
+.sectionMeta {
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.settingsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  border: 1px solid rgba(12, 140, 131, 0.35);
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settingsButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.configSavedBadge {
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0b756e;
+  border: 1px solid rgba(12, 140, 131, 0.38);
+  background: rgba(12, 140, 131, 0.12);
+  animation: flashAppear 0.98s ease;
+}
+
+.uploadZone {
+  border: 2px dashed rgba(12, 140, 131, 0.35);
+  border-radius: 16px;
+  min-height: 148px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+}
+
+.emptyIllustration {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  border: 1px solid rgba(12, 140, 131, 0.28);
+  background: linear-gradient(150deg, rgba(12, 140, 131, 0.15), rgba(216, 143, 40, 0.14));
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+
+.emptyIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.uploadZone:hover,
+.uploadZoneActive {
+  border-color: var(--teal-500);
+  background: rgba(12, 140, 131, 0.08);
+}
+
+.uploadIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(216, 143, 40, 0.15);
+  color: var(--sun-600);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.uploadText {
+  margin: 8px 0 2px;
+  font-size: 1rem;
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.uploadHint {
+  margin: 0;
+  color: #6f6258;
+  font-size: 0.77rem;
+  font-weight: 600;
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileChip {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 10px 12px;
+}
+
+.fileChipPulse {
+  animation: softPop 0.82s ease;
+}
+
+.fileChipIcon {
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+}
+
+.fileChipInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileChipName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.fileChipSize {
+  font-size: 0.75rem;
+  color: var(--ink-500);
+}
+
+.fileChipRemove {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+  border-radius: 9px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-soft), transparent);
+  margin: 20px 0;
+}
+
+.formatGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.formatCard {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 13px;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.18s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.formatCard:hover {
+  transform: translateY(-1px);
+}
+
+.formatCard input {
+  display: none;
+}
+
+.formatName {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.formatDesc {
+  font-size: 0.76rem;
+  color: var(--ink-500);
+}
+
+.formatCardActiveExcel {
+  border-color: rgba(31, 143, 86, 0.56);
+  background: rgba(31, 143, 86, 0.1);
+}
+
+.formatCardActivePDF {
+  border-color: rgba(182, 73, 44, 0.58);
+  background: rgba(182, 73, 44, 0.1);
+}
+
+.defaultSummary {
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-700);
+}
+
+.settingsPanel {
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.filterPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.filterTitle {
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.filterHint {
+  color: var(--ink-700);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.filterReset {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 9px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filterChip {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  padding: 8px 11px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filterChipActive {
+  border-color: rgba(12, 140, 131, 0.58);
+  background: rgba(12, 140, 131, 0.12);
+}
+
+.detectionPanel {
+  margin-top: 12px;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid rgba(12, 140, 131, 0.26);
+  background: linear-gradient(145deg, rgba(12, 140, 131, 0.16), rgba(216, 143, 40, 0.1));
+}
+
+.detectionTitle {
+  font-size: 0.86rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.detectionHint {
+  font-size: 0.77rem;
+  color: var(--ink-700);
+}
+
+.prevalidacionPanel {
+  margin-top: 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.prevalidacionOk {
+  border-color: rgba(31, 143, 86, 0.35);
+  background: rgba(31, 143, 86, 0.09);
+}
+
+.prevalidacionWarn {
+  border-color: rgba(182, 73, 44, 0.35);
+  background: rgba(182, 73, 44, 0.09);
+}
+
+.prevalidacionTitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.prevalidacionText {
+  margin-top: 3px;
+  font-size: 0.76rem;
+  color: var(--ink-700);
+}
+
+.prevalidacionList {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}
+
+.extraMateriasRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.extraMateriaTag {
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.45);
+  background: rgba(12, 140, 131, 0.12);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.extraMateriaTagBase {
+  border-radius: 999px;
+  border: 1px solid rgba(46, 88, 166, 0.45);
+  background: rgba(46, 88, 166, 0.1);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1a3a7a;
+}
+
+.modeGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.modeCard {
+  border: 1px solid rgba(46, 38, 31, 0.16);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.modeCardActive {
+  border-color: rgba(12, 140, 131, 0.6);
+  background: rgba(12, 140, 131, 0.12);
+}
+
+.modeCardTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+
+.modeIcon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.modeCardDesc {
+  font-size: 0.7rem;
+  color: var(--ink-700);
+}
+
+.selectionToolbar {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.selectionHelp {
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}
+
+.selectionCount {
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.4);
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.selectionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.selectionChipInactive {
+  opacity: 0.72;
+}
+
+.selectionChipMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 18px;
+  border-radius: 7px;
+  border: 1px solid var(--line-soft);
+  font-size: 0.63rem;
+  font-weight: 800;
+}
+
+.submitBtn {
+  margin-top: 6px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.submitPulse {
+  animation: softPop 0.98s ease;
+}
+
+.submitBtnExcel {
+  background: linear-gradient(130deg, #0c8c83, #0b756e);
+}
+
+.submitBtnPDF {
+  background: linear-gradient(130deg, #b6492c, #9b3f27);
+}
+
+.submitBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 999px;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes softPop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.012);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flashAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statusMsg {
+  margin-top: 12px;
+  border-radius: 11px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.statusMsgOk {
+  color: var(--ok-500);
+  border: 1px solid rgba(31, 143, 86, 0.25);
+  background: rgba(31, 143, 86, 0.08);
+}
+
+.statusMsgError {
+  color: var(--err-500);
+  border: 1px solid rgba(159, 43, 43, 0.25);
+  background: rgba(159, 43, 43, 0.08);
+}
+
+.statusMsgInfo {
+  color: var(--info-500);
+  border: 1px solid rgba(36, 95, 154, 0.24);
+  background: rgba(36, 95, 154, 0.08);
+}
+
+.statusIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.74rem;
+}
+
+.statusDetailList {
+  margin: 7px 0 0;
+  padding-left: 17px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.summaryTitle {
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.summaryHint {
+  margin-top: 5px;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-700);
+}
+
+.excelDetailsLauncher {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.excelDetailsBtn {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: linear-gradient(120deg, #0f766e, #0e7490);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.25);
+}
+
+.excelDetailsBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.excelDetailsBtn:active {
+  transform: translateY(0);
+}
+
+.previewPanel {
+  margin-top: 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.previewTitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+  margin-bottom: 7px;
+}
+
+.previewSection {
+  margin-top: 8px;
+}
+
+.previewSection + .previewSection {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line-soft);
+}
+
+.previewCols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.previewCols > div {
+  min-width: 0;
+}
+
+.previewSubTitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink-700);
+  margin-bottom: 5px;
+}
+
+.previewCountBadge {
+  margin-left: 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.35);
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--teal-600);
+  padding: 1px 7px;
+  font-size: 0.65rem;
+  font-weight: 800;
+}
+
+.previewSubTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+}
+
+.previewToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid rgba(12, 140, 131, 0.35);
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.previewToggle:hover {
+  background: rgba(12, 140, 131, 0.16);
+}
+
+.previewList {
+  display: grid;
+  gap: 4px;
+}
+
+.previewListScrollable {
+  max-height: 260px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 10px;
+  scrollbar-gutter: stable;
+}
+
+.previewListScrollable::-webkit-scrollbar {
+  width: 8px;
+}
+
+.previewListScrollable::-webkit-scrollbar-thumb {
+  background: rgba(12, 140, 131, 0.25);
+  border-radius: 999px;
+}
+
+.previewRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.73rem;
+  background: rgba(248, 243, 234, 0.75);
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+/* Fila de especialista con checkbox */
+.previewRowEsp {
+  display: grid;
+  grid-template-columns: 22px 22px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.73rem;
+  background: rgba(248, 243, 234, 0.75);
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  border-radius: 8px;
+  padding: 5px 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.14s, border-color 0.14s, opacity 0.14s;
+}
+
+.previewRowEsp:hover {
+  background: rgba(12, 140, 131, 0.08);
+  border-color: rgba(12, 140, 131, 0.3);
+}
+
+.previewRowEspInactivo {
+  opacity: 0.4;
+  background: rgba(248, 243, 234, 0.4);
+}
+
+.previewRowEspInactivo:hover {
+  opacity: 0.75;
+  background: rgba(12, 140, 131, 0.06);
+}
+
+/* Indicador visual del check */
+.especialistaCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(46, 38, 31, 0.28);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: transparent;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  flex-shrink: 0;
+}
+
+.especialistaCheckOn {
+  border-color: var(--teal-500);
+  background: var(--teal-500);
+  color: #fff;
+}
+
+/* Botones de acción Todos/Ninguno */
+.especialistaFilterActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.especialistaActionBtn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(46, 38, 31, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink-700);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.especialistaActionBtn:hover {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(12, 140, 131, 0.4);
+  color: var(--teal-600);
+}
+
+.especialistaActionBtnActive {
+  background: rgba(12, 140, 131, 0.15);
+  border-color: var(--teal-500);
+  color: var(--teal-600);
+}
+
+.especialistaFilterHint {
+  font-size: 0.65rem;
+  color: var(--ink-500);
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Badge de filtro activo */
+.previewFilterBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(216, 143, 40, 0.18);
+  border: 1px solid rgba(216, 143, 40, 0.4);
+  color: var(--sun-600);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}
+
+.excelInsightsGrid {
+  display: grid;
+  gap: 8px;
+}
+
+.excelSheetList {
+  display: grid;
+  gap: 8px;
+}
+
+.excelSheetCard {
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  background: rgba(255, 255, 255, 0.86);
+  border-radius: 10px;
+  padding: 9px;
+}
+
+.excelSheetName {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.excelSheetMeta {
+  margin-top: 4px;
+  font-size: 0.72rem;
+  color: var(--ink-700);
+  line-height: 1.45;
+}
+
+.excelMetricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.excelFieldCard {
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  background: rgba(248, 243, 234, 0.7);
+  border-radius: 10px;
+  padding: 9px;
+}
+
+.excelFieldHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.excelFieldLabel {
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.excelFieldColumn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 22px;
+  border-radius: 999px;
+  background: rgba(12, 140, 131, 0.12);
+  border: 1px solid rgba(12, 140, 131, 0.3);
+  color: var(--teal-600);
+  font-size: 0.67rem;
+  font-weight: 800;
+}
+
+.excelFieldMeta {
+  margin-top: 4px;
+  font-size: 0.69rem;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.excelFieldSample {
+  margin-top: 5px;
+  font-size: 0.74rem;
+  color: var(--ink-700);
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.excelWidgetsList {
+  display: grid;
+  gap: 7px;
+}
+
+.excelWidgetRow {
+  border-radius: 10px;
+  background: rgba(12, 140, 131, 0.08);
+  border: 1px solid rgba(12, 140, 131, 0.18);
+  padding: 8px 9px;
+}
+
+.excelWidgetName {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.excelWidgetReason {
+  display: block;
+  margin-top: 3px;
+  font-size: 0.72rem;
+  color: var(--ink-700);
+  line-height: 1.45;
+}
+
+.excelShowMoreBtn {
+  margin-top: 8px;
+  height: 32px;
+  border-radius: 9px;
+  border: 1px solid rgba(46, 88, 166, 0.32);
+  background: rgba(46, 88, 166, 0.12);
+  color: #1a3a7a;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.5);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.modalCard {
+  width: min(920px, 95vw);
+  max-height: 85vh;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-900);
+}
+
+.modalCloseBtn {
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 43, 43, 0.32);
+  background: rgba(159, 43, 43, 0.12);
+  color: #8f2d2d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.modalBodyScroll {
+  padding: 12px;
+  max-height: calc(85vh - 58px);
+  overflow: auto;
+}
+
+.excelMetaGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.excelMetaItem {
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.86);
+  padding: 8px;
+}
+
+.excelMetaValue {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.78rem;
+  color: var(--ink-900);
+  line-height: 1.4;
+}
+
+.excelTagSections {
+  display: grid;
+  gap: 10px;
+}
+
+.excelTagTitle {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--ink-700);
+  margin-bottom: 5px;
+}
+
+.excelTagWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.excelTag,
+.excelTagMuted {
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.68rem;
+  border: 1px solid rgba(12, 140, 131, 0.24);
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+  font-weight: 700;
+}
+
+.excelTagMuted {
+  border-color: rgba(46, 38, 31, 0.18);
+  background: rgba(46, 38, 31, 0.06);
+  color: var(--ink-500);
+}
+
+.excelTableWrap {
+  overflow: auto;
+  border: 1px solid rgba(46, 38, 31, 0.12);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.excelPreviewTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 860px;
+  font-size: 0.7rem;
+}
+
+.excelPreviewTable th,
+.excelPreviewTable td {
+  padding: 6px;
+  border-bottom: 1px solid rgba(46, 38, 31, 0.1);
+  text-align: left;
+  vertical-align: top;
+}
+
+.excelPreviewTable th {
+  position: sticky;
+  top: 0;
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--ink-900);
+  font-weight: 800;
+  z-index: 1;
+}
+
+.excelDiscardedList {
+  margin-top: 8px;
+  display: grid;
+  gap: 6px;
+  max-height: 190px;
+  overflow-y: auto;
+}
+
+.excelDiscardedRow {
+  border: 1px solid rgba(159, 43, 43, 0.2);
+  background: rgba(159, 43, 43, 0.08);
+  border-radius: 8px;
+  padding: 6px 7px;
+  font-size: 0.69rem;
+  line-height: 1.4;
+  color: var(--ink-700);
+}
+
+.excelEmpty {
+  border: 1px dashed rgba(46, 38, 31, 0.24);
+  border-radius: 9px;
+  padding: 8px;
+  font-size: 0.72rem;
+  color: var(--ink-500);
+}
+
+.previewRowMain {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  gap: 7px;
+  flex: 1;
+}
+
+.previewName {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink-700);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
+}
+
+.previewRank {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 999px;
+  background: rgba(46, 88, 166, 0.12);
+  border: 1px solid rgba(46, 88, 166, 0.3);
+  color: #1a3a7a;
+  font-size: 0.63rem;
+  font-weight: 800;
+}
+
+.previewTotal {
+  color: var(--ink-900);
+  min-width: 44px;
+  text-align: right;
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.kpiItem {
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 9px;
+}
+
+.kpiLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.kpiValue {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.summaryBlock {
+  margin-top: 11px;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 10px;
+}
+
+.summaryBlockLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.summaryBlockText,
+.summaryBlockTextMuted {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.summaryBlockTextMuted {
+  color: var(--ink-700);
+}
+
+.summaryFooter {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(216, 143, 40, 0.12);
+  border: 1px solid rgba(216, 143, 40, 0.24);
+  font-size: 0.76rem;
+  color: #7a4c07;
+}
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--ink-500);
+  font-size: 0.74rem;
+}
+
+.authorSection {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 18px auto 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px 14px;
+}
+
+.matrixCard {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 16px auto 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 14px;
+}
+
+.matrixLauncherSection {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 12px auto 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.matrixOpenBtn {
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(12, 140, 131, 0.34);
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--teal-600);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.matrixModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.55);
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.matrixModalCard {
+  width: min(1220px, 96vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.matrixModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.matrixModalHeader h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-900);
+}
+
+.matrixModalCloseBtn {
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 43, 43, 0.32);
+  background: rgba(159, 43, 43, 0.12);
+  color: #8f2d2d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.matrixModalBody {
+  max-height: calc(90vh - 58px);
+  overflow: auto;
+}
+
+.matrixModalBody .matrixCard {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  max-width: none;
+}
+
+.matrixControlGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.matrixControlItem {
+  display: grid;
+  gap: 5px;
+}
+
+.matrixControlLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.matrixControlItem select,
+.matrixControlItem input {
+  height: 34px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink-900);
+  padding: 0 9px;
+  font-size: 0.76rem;
+}
+
+.matrixToolbar {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.matrixActionBtn {
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(12, 140, 131, 0.34);
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--teal-600);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0 11px;
+  cursor: pointer;
+}
+
+.matrixActionBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.matrixTableWrap {
+  margin-top: 10px;
+  overflow: auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+  font-size: 0.72rem;
+}
+
+.matrixTable th,
+.matrixTable td {
+  border-bottom: 1px solid rgba(46, 38, 31, 0.1);
+  padding: 6px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.matrixTable th {
+  background: rgba(46, 88, 166, 0.1);
+  color: var(--ink-900);
+  font-weight: 800;
+}
+
+.matrixRowHeader {
+  text-align: left !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.matrixTotalCell {
+  font-weight: 800;
+  background: rgba(216, 143, 40, 0.12);
+}
+
+.authorTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.authorHint {
+  margin-top: 4px;
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}
+
+.appDark {
+  --bg-paper: #14191d;
+  --bg-warm: #192128;
+  --ink-900: #e7ddd1;
+  --ink-700: #c5b9ab;
+  --ink-500: #aa9b8d;
+  --line-soft: rgba(231, 221, 209, 0.14);
+  --line-strong: rgba(231, 221, 209, 0.24);
+}
+
+.appDark .card,
+.appDark .summaryCard,
+.appDark .stepLocked,
+.appDark .formatCard,
+.appDark .settingsPanel,
+.appDark .kpiItem,
+.appDark .fileChip,
+.appDark .modeCard {
+  background: rgba(24, 31, 36, 0.74);
+}
+
+.appDark .uploadZone:hover,
+.appDark .uploadZoneActive {
+  background: rgba(12, 140, 131, 0.14);
+}
+
+.appDark .summaryFooter {
+  color: #f3d39d;
+}
+
+.appDark .authorSection {
+  background: rgba(24, 31, 36, 0.74);
+}
+
+.appDark .headerBadge,
+.appDark .themeToggle {
+  background: rgba(24, 31, 36, 0.86);
+  color: var(--ink-900);
+}
+
+.appDark .matrixCard,
+.appDark .matrixTableWrap,
+.appDark .matrixControlItem select,
+.appDark .matrixControlItem input {
+  background: rgba(24, 31, 36, 0.82);
+  border-color: rgba(231, 221, 209, 0.22);
+  color: var(--ink-900);
+}
+
+.appDark .matrixOpenBtn {
+  background: rgba(12, 140, 131, 0.22);
+  border-color: rgba(74, 213, 198, 0.45);
+  color: #a8f6ee;
+}
+
+.appDark .matrixModalCard {
+  background: rgba(24, 31, 36, 0.98);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .matrixModalHeader,
+.appDark .matrixModalHeader h3 {
+  color: #c5b9ab;
+  border-color: rgba(231, 221, 209, 0.18);
+}
+
+.appDark .matrixModalCloseBtn {
+  background: rgba(159, 43, 43, 0.22);
+  border-color: rgba(222, 128, 128, 0.4);
+  color: #ffc6c6;
+}
+
+.appDark .matrixTable th {
+  background: rgba(46, 88, 166, 0.24);
+}
+
+.appDark .matrixTable th,
+.appDark .matrixTable td,
+.appDark .matrixControlLabel {
+  color: #c5b9ab;
+}
+
+.appDark .matrixTotalCell {
+  background: rgba(216, 143, 40, 0.18);
+}
+
+.appDark .headerSubtitle,
+.appDark .uploadHint,
+.appDark .previewSubTitle,
+.appDark .prevalidacionText,
+.appDark .prevalidacionList,
+.appDark .statusDetailList,
+.appDark .summaryHint,
+.appDark .summaryBlockTextMuted,
+.appDark .filterHint,
+.appDark .selectionHelp,
+.appDark .authorHint {
+  color: #b9ab9d;
+}
+
+.appDark .fileChipRemove,
+.appDark .filterReset,
+.appDark .selectionChipMark {
+  background: rgba(18, 24, 29, 0.92);
+  color: var(--ink-900);
+}
+
+.appDark .detectionPanel {
+  border-color: rgba(74, 213, 198, 0.42);
+  background: linear-gradient(145deg, rgba(12, 140, 131, 0.22), rgba(216, 143, 40, 0.14));
+}
+
+.appDark .excelMetaItem,
+.appDark .excelTableWrap,
+.appDark .excelSheetCard,
+.appDark .excelFieldCard {
+  background: rgba(20, 27, 33, 0.92);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .excelPreviewTable th {
+  background: rgba(12, 140, 131, 0.24);
+}
+
+.appDark .excelPreviewTable th,
+.appDark .excelPreviewTable td,
+.appDark .excelMetaValue,
+.appDark .excelTagTitle,
+.appDark .excelEmpty,
+.appDark .excelDiscardedRow {
+  color: #c5b9ab;
+}
+
+.appDark .excelTag {
+  background: rgba(12, 140, 131, 0.18);
+  border-color: rgba(74, 213, 198, 0.4);
+}
+
+.appDark .excelTagMuted {
+  background: rgba(231, 221, 209, 0.08);
+  border-color: rgba(231, 221, 209, 0.2);
+}
+
+.appDark .excelShowMoreBtn {
+  background: rgba(46, 88, 166, 0.2);
+  border-color: rgba(117, 157, 229, 0.45);
+  color: #b3cbff;
+}
+
+.appDark .excelDetailsBtn {
+  background: linear-gradient(120deg, #14b8a6, #0891b2);
+  box-shadow: 0 10px 22px rgba(20, 184, 166, 0.28);
+}
+
+.appDark .modalCard {
+  background: rgba(24, 31, 36, 0.98);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .modalHeader,
+.appDark .modalHeader h3 {
+  color: #c5b9ab;
+  border-color: rgba(231, 221, 209, 0.18);
+}
+
+.appDark .modalCloseBtn {
+  background: rgba(159, 43, 43, 0.22);
+  border-color: rgba(222, 128, 128, 0.4);
+  color: #ffc6c6;
+}
+
+.appDark .prevalidacionPanel,
+.appDark .previewPanel {
+  border-color: rgba(231, 221, 209, 0.22);
+  background: rgba(20, 27, 33, 0.92);
+}
+
+.appDark .prevalidacionOk {
+  border-color: rgba(56, 176, 110, 0.52);
+  background: rgba(18, 90, 58, 0.28);
+}
+
+.appDark .prevalidacionWarn {
+  border-color: rgba(224, 120, 82, 0.5);
+  background: rgba(116, 46, 29, 0.32);
+}
+
+.appDark .previewSection + .previewSection {
+  border-top-color: rgba(231, 221, 209, 0.2);
+}
+
+.appDark .previewCountBadge,
+.appDark .previewToggle,
+.appDark .selectionCount,
+.appDark .filterChipActive,
+.appDark .modeCardActive,
+.appDark .configSavedBadge,
+.appDark .extraMateriaTag {
+  border-color: rgba(74, 213, 198, 0.48);
+  background: rgba(12, 140, 131, 0.2);
+  color: #9ee9e2;
+}
+
+.appDark .extraMateriaTagBase,
+.appDark .previewRank {
+  border-color: rgba(122, 171, 255, 0.54);
+  background: rgba(74, 118, 196, 0.24);
+  color: #ccddff;
+}
+
+.appDark .previewRow {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .previewRowEsp {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .previewRowEsp:hover {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(74, 213, 198, 0.35);
+}
+
+.appDark .especialistaCheck {
+  background: rgba(28, 36, 43, 0.8);
+  border-color: rgba(231, 221, 209, 0.3);
+}
+
+.appDark .especialistaCheckOn {
+  background: var(--teal-500);
+  border-color: var(--teal-500);
+}
+
+.appDark .especialistaActionBtn {
+  background: rgba(28, 36, 43, 0.8);
+  border-color: rgba(231, 221, 209, 0.22);
+  color: #c5b9ab;
+}
+
+.appDark .especialistaActionBtnActive {
+  background: rgba(12, 140, 131, 0.22);
+  border-color: rgba(74, 213, 198, 0.5);
+  color: #9ee9e2;
+}
+
+.appDark .previewFilterBadge {
+  background: rgba(216, 143, 40, 0.2);
+  border-color: rgba(216, 143, 40, 0.45);
+  color: #f0c06a;
+}
+
+.appDark .excelFieldCard {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .excelSheetCard {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .excelFieldLabel,
+.appDark .excelWidgetName,
+.appDark .excelSheetName {
+  color: #f3e8da;
+}
+
+.appDark .excelFieldMeta,
+.appDark .excelFieldSample,
+.appDark .excelWidgetReason,
+.appDark .excelSheetMeta {
+  color: #cdbfb2;
+}
+
+.appDark .excelFieldColumn {
+  border-color: rgba(74, 213, 198, 0.48);
+  background: rgba(12, 140, 131, 0.2);
+  color: #9ee9e2;
+}
+
+.appDark .excelWidgetRow {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(74, 213, 198, 0.24);
+}
+
+.appDark .previewName {
+  color: #d2c6b9;
+}
+
+.appDark .previewTotal {
+  color: #f3e8da;
+}
+
+.appDark .previewListScrollable::-webkit-scrollbar-thumb {
+  background: rgba(74, 213, 198, 0.42);
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .matrixControlGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .summaryCard {
+    position: static;
+  }
+}
+
+@media (max-width: 760px) {
+  .stepsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .formatGrid,
+  .modeGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .previewCols {
+    grid-template-columns: 1fr;
+  }
+
+  .excelMetricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filterPanelHeader,
+  .selectionToolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .headerTopbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .card,
+  .summaryCard {
+    padding: 18px;
+  }
+}
