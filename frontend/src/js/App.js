@@ -11,6 +11,8 @@ const API_URL = process.env.REACT_APP_API_URL || "http://localhost:4000";
 const DEFAULT_MATERIAS_STORAGE_KEY = "gestor-reportes.default-materias";
 const THEME_STORAGE_KEY = "gestor-reportes.theme";
 const DEFAULT_MATERIAS_BASE = ["CIVIL", "LABORAL"];
+const MAX_UPLOAD_MB = Number(process.env.REACT_APP_MAX_UPLOAD_MB || 25);
+const MAX_UPLOAD_BYTES = MAX_UPLOAD_MB * 1024 * 1024;
 const SUPPORTED_INPUT_EXTENSIONS = [".xlsx", ".xls", ".xlsm", ".xltx", ".xltm", ".csv", ".pdf"];
 const SUPPORTED_INPUT_ACCEPT = SUPPORTED_INPUT_EXTENSIONS.join(",");
 const SUPPORTED_INPUT_LABEL = ".xlsx, .xls, .xlsm, .xltx, .xltm, .csv, .pdf";
@@ -279,6 +281,15 @@ function App() {
       setArchivo(null);
       setMensaje(`DocuMind procesa PDF y Excel compatibles: ${SUPPORTED_INPUT_LABEL}.`);
       setMensajeDetalles([]);
+      resetAnalisisMaterias();
+      event.target.value = "";
+      return;
+    }
+
+    if (file && file.size > MAX_UPLOAD_BYTES) {
+      setArchivo(null);
+      setMensaje(`El archivo excede el maximo permitido de ${MAX_UPLOAD_MB} MB.`);
+      setMensajeDetalles(["Reduce el tamano del archivo o divide la informacion en partes mas pequenas."]);
       resetAnalisisMaterias();
       event.target.value = "";
       return;

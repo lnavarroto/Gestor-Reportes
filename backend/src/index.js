@@ -89,6 +89,12 @@ app.use(
 	fileUpload({
 		limits: { fileSize: MAX_UPLOAD_MB * 1024 * 1024 },
 		abortOnLimit: true,
+		responseOnLimit: `El archivo excede el maximo permitido de ${MAX_UPLOAD_MB} MB.`,
+		limitHandler: (_req, res) => {
+			return res.status(413).json({
+				message: `El archivo excede el maximo permitido de ${MAX_UPLOAD_MB} MB.`,
+			});
+		},
 	})
 );
 
@@ -1116,8 +1122,37 @@ return res.status(500).json({ message: "No se pudo procesar el reporte." });
 }
 });
 
-app.listen(PORT, "0.0.0.0", () => {
-	console.log(`Servidor backend escuchando en puerto ${PORT}`);
+const HOST = process.env.HOST || "0.0.0.0";
+
+const server = app.listen(PORT, HOST, () => {
+	console.log(`Servidor backend escuchando en http://${HOST}:${PORT}`);
 });
+
+server.on("error", (error) => {
+	if (error?.code === "EADDRINUSE") {
+		console.error(`No se pudo iniciar: el puerto ${PORT} ya esta en uso.`);
+	} else if (error?.code === "EACCES") {
+		console.error(`No se pudo iniciar: permisos insuficientes para el puerto ${PORT}.`);
+	} else {
+		console.error("Error iniciando el servidor:", error);
+	}
+	process.exit(1);
+});
+
+function shutdown(signal) {
+	console.log(`${signal} recibido, cerrando servidor...`);
+	server.close((error) => {
+		if (error) {
+			console.error("Error durante el cierre del servidor:", error);
+			process.exit(1);
+			return;
+		}
+		console.log("Servidor detenido correctamente.");
+		process.exit(0);
+	});
+}
+
+process.on("SIGINT", () => shutdown("SIGINT"));
+process.on("SIGTERM", () => shutdown("SIGTERM"));
 
 
