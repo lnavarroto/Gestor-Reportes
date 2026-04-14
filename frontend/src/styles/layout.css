@@ -1,0 +1,67 @@
+/* ============================================================================
+   LAYOUT GENERAL Y CARDS
+   ============================================================================ */
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.card,
+.summaryCard {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 22px;
+  backdrop-filter: blur(10px);
+}
+
+.card {
+  padding: 26px;
+  box-shadow: 0 14px 36px rgba(30, 27, 24, 0.08);
+}
+
+.summaryCard {
+  padding: 20px;
+  position: sticky;
+  top: 18px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.sectionLabel {
+  margin: 0;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: #6d5c50;
+  font-weight: 800;
+}
+
+.sectionMeta {
+  border-radius: 999px;
+  border: 1px solid var(--line-soft);
+  padding: 3px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--ink-700);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-soft), transparent);
+  margin: 20px 0;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}

@@ -1,0 +1,216 @@
+/* ============================================================================
+   CONFIGURACIÓN Y FILTROS
+   ============================================================================ */
+
+.settingsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  border: 1px solid rgba(12, 140, 131, 0.35);
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settingsButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.configSavedBadge {
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0b756e;
+  border: 1px solid rgba(12, 140, 131, 0.38);
+  background: rgba(12, 140, 131, 0.12);
+  animation: flashAppear 0.98s ease;
+}
+
+.settingsPanel {
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.filterPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.filterTitle {
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.filterHint {
+  color: var(--ink-700);
+  font-size: 0.76rem;
+  line-height: 1.5;
+}
+
+.filterReset {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+  border-radius: 9px;
+  padding: 8px 9px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.filterChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filterChip {
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  padding: 8px 11px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filterChipActive {
+  border-color: rgba(12, 140, 131, 0.58);
+  background: rgba(12, 140, 131, 0.12);
+}
+
+.detectionPanel {
+  margin-top: 12px;
+  border-radius: 16px;
+  padding: 14px;
+  border: 1px solid rgba(12, 140, 131, 0.26);
+  background: linear-gradient(145deg, rgba(12, 140, 131, 0.16), rgba(216, 143, 40, 0.1));
+}
+
+.detectionTitle {
+  font-size: 0.86rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.detectionHint {
+  font-size: 0.77rem;
+  color: var(--ink-700);
+}
+
+.prevalidacionPanel {
+  margin-top: 10px;
+  border-radius: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.86);
+}
+
+.prevalidacionOk {
+  border-color: rgba(31, 143, 86, 0.35);
+  background: rgba(31, 143, 86, 0.09);
+}
+
+.prevalidacionWarn {
+  border-color: rgba(182, 73, 44, 0.35);
+  background: rgba(182, 73, 44, 0.09);
+}
+
+.prevalidacionTitle {
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.prevalidacionText {
+  margin-top: 3px;
+  font-size: 0.76rem;
+  color: var(--ink-700);
+}
+
+.prevalidacionList {
+  margin: 6px 0 0;
+  padding-left: 16px;
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}
+
+.modeGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.modeCard {
+  border: 1px solid rgba(46, 38, 31, 0.16);
+  background: rgba(255, 255, 255, 0.78);
+  border-radius: 12px;
+  padding: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.modeCardActive {
+  border-color: rgba(12, 140, 131, 0.6);
+  background: rgba(12, 140, 131, 0.12);
+}
+
+.modeCardTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  margin-bottom: 3px;
+}
+
+.modeIcon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+}
+
+.modeCardDesc {
+  font-size: 0.7rem;
+  color: var(--ink-700);
+}
+
+.extraMateriasRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.extraMateriaTag {
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.45);
+  background: rgba(12, 140, 131, 0.12);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.extraMateriaTagBase {
+  border-radius: 999px;
+  border: 1px solid rgba(46, 88, 166, 0.45);
+  background: rgba(46, 88, 166, 0.1);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1a3a7a;
+}

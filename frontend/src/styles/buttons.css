@@ -1,0 +1,103 @@
+/* ============================================================================
+   BOTONES Y ESTADO
+   ============================================================================ */
+
+.submitBtn {
+  margin-top: 6px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.submitPulse {
+  animation: softPop 0.98s ease;
+}
+
+.submitBtnExcel {
+  background: linear-gradient(130deg, #0c8c83, #0b756e);
+}
+
+.submitBtnPDF {
+  background: linear-gradient(130deg, #b6492c, #9b3f27);
+}
+
+.submitBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 999px;
+  animation: spin 0.7s linear infinite;
+}
+
+.statusMsg {
+  margin-top: 12px;
+  border-radius: 11px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.statusMsgOk {
+  color: var(--ok-500);
+  border: 1px solid rgba(31, 143, 86, 0.25);
+  background: rgba(31, 143, 86, 0.08);
+}
+
+.statusMsgError {
+  color: var(--err-500);
+  border: 1px solid rgba(159, 43, 43, 0.25);
+  background: rgba(159, 43, 43, 0.08);
+}
+
+.statusMsgInfo {
+  color: var(--info-500);
+  border: 1px solid rgba(36, 95, 154, 0.24);
+  background: rgba(36, 95, 154, 0.08);
+}
+
+.statusIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.74rem;
+}
+
+.statusDetailList {
+  margin: 7px 0 0;
+  padding-left: 17px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}

@@ -1,0 +1,36 @@
+/* ============================================================================
+   PIE DE PÁGINA Y AUTOR
+   ============================================================================ */
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--ink-500);
+  font-size: 0.74rem;
+}
+
+.authorSection {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 18px auto 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px 14px;
+}
+
+.authorTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--ink-900);
+}
+
+.authorHint {
+  margin-top: 4px;
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}

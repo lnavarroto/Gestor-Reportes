@@ -1,0 +1,60 @@
+/* ============================================================================
+   PASOS Y INDICADORES DE PROGRESO
+   ============================================================================ */
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stepCard {
+  border-radius: 14px;
+  padding: 12px;
+  border: 1px solid var(--line-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepProgress {
+  margin-top: 6px;
+  height: 5px;
+  border-radius: 999px;
+  background: rgba(46, 38, 31, 0.14);
+  overflow: hidden;
+}
+
+.stepProgressFill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #0c8c83, #d88f28);
+  transition: width 0.24s ease;
+}
+
+.stepId {
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.stepTitle {
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.stepDone {
+  background: rgba(31, 143, 86, 0.12);
+  border-color: rgba(31, 143, 86, 0.35);
+}
+
+.stepActive {
+  background: rgba(216, 143, 40, 0.14);
+  border-color: rgba(216, 143, 40, 0.42);
+}
+
+.stepLocked {
+  background: rgba(255, 255, 255, 0.58);
+}

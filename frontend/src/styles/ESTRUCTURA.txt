@@ -1,0 +1,75 @@
+📁 frontend/src/styles/
+│
+├── 📄 App.module.css ........................ Archivo PRINCIPAL (solo imports)
+├── 📄 README.md ............................. Guía de estructura modular
+│
+├── ✨ CONFIGURACIÓN BASE
+│   ├── variables.css ....................... Colores, tokens, CSS variables
+│   └── base.css ............................ Animaciones, decoraciones globales
+│
+├── 🏛️ COMPONENTES PRINCIPALES
+│   ├── header.css .......................... Estilos de header y navegación
+│   ├── steps.css ........................... Indicadores de progreso
+│   ├── layout.css .......................... Grid principal, cards
+│   ├── upload.css .......................... Zona de carga y archivos
+│   ├── format.css .......................... Selección de formato (Excel/PDF)
+│   └── buttons.css ......................... Botones, spinner, estados
+│
+├── ⚙️ CONFIGURACIÓN Y FILTROS
+│   ├── settings.css ........................ Paneles de configuración
+│   ├── selection.css ....................... Selectores y checkboxes
+│   └── preview.css ......................... Panel de vista previa
+│
+├── 📊 DATOS Y RESUMEN
+│   ├── summary.css ......................... KPI, resumen lateral
+│   └── excel.css ........................... Insights de Excel
+│
+├── 🗂️ MODALES Y VISTAS
+│   ├── modal.css ........................... Estilos de modales
+│   └── matrix.css .......................... Matriz dinámica
+│
+├── 🌙 TEMAS Y RESPONSIVE
+│   ├── theme-dark.css ...................... Tema oscuro
+│   └── responsive.css ...................... Media queries
+│
+└── 📷 PIE DE PÁGINA
+    └── footer.css .......................... Pie de página y autor
+
+═══════════════════════════════════════════════════════════════════════════
+
+TAMAÑO APROXIMADO:
+├── variables.css ................... ~20 líneas
+├── base.css ....................... ~70 líneas
+├── header.css ..................... ~45 líneas
+├── steps.css ...................... ~50 líneas
+├── layout.css ..................... ~60 líneas
+├── upload.css ..................... ~110 líneas
+├── format.css ..................... ~40 líneas
+├── buttons.css .................... ~80 líneas
+├── settings.css ................... ~140 líneas
+├── selection.css .................. ~130 líneas
+├── preview.css .................... ~130 líneas
+├── summary.css .................... ~65 líneas
+├── excel.css ...................... ~180 líneas
+├── modal.css ....................... ~50 líneas
+├── matrix.css ..................... ~145 líneas
+├── theme-dark.css ................. ~200 líneas
+├── responsive.css .................. ~50 líneas
+└── footer.css ....................... ~25 líneas
+
+TOTAL: ~1,380 líneas (vs 2,044 en monolítico) ↓ 33% reducción visual ✨
+
+═══════════════════════════════════════════════════════════════════════════
+
+VENTAJAS INMEDIATAS:
+
+✅ Archivos pequeños y enfocados (máx ~200 líneas)
+✅ Fácil navegar entre secciones
+✅ Sin conflictos en colaboración
+✅ Cambios aislados sin afectar otros componentes
+✅ Búsqueda rápida por funcionalidad
+✅ Mantenimiento simplificado
+✅ Escalabilidad para nuevos módulos
+✅ Mejor performance de búsqueda en IDE
+
+═══════════════════════════════════════════════════════════════════════════

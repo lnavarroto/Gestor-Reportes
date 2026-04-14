@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UiIcon from "./UiIcon";
 
 function UploadSection({
@@ -39,6 +39,32 @@ function UploadSection({
   inputAccept,
   supportedFormatsLabel,
 }) {
+  const [isDragging, setIsDragging] = useState(false);
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragging(false);
+
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) {
+      const file = files[0];
+      const event = { target: { files: [file] } };
+      onChangeArchivo(event);
+    }
+  };
   return (
     <section className={styles.card}>
       <form onSubmit={onSubmit} noValidate>
@@ -47,7 +73,12 @@ function UploadSection({
           <span className={styles.sectionMeta}>Paso 1</span>
         </div>
 
-        <label className={`${styles.uploadZone} ${archivo ? styles.uploadZoneActive : ""}`}>
+        <label
+          className={`${styles.uploadZone} ${archivo ? styles.uploadZoneActive : ""} ${isDragging ? styles.uploadZoneDrag : ""}`}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          onDrop={handleDrop}
+        >
           {archivo ? (
             <>
               <span className={styles.uploadIcon}>

@@ -1,0 +1,189 @@
+/* ============================================================================
+   MATRIZ DINÁMICA
+   ============================================================================ */
+
+.matrixCard {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 16px auto 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.76);
+  padding: 14px;
+}
+
+.matrixLauncherSection {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 12px auto 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.matrixOpenBtn {
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(12, 140, 131, 0.34);
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--teal-600);
+  font-size: 0.76rem;
+  font-weight: 800;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.matrixModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.55);
+  z-index: 1300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.matrixModalCard {
+  width: min(1220px, 96vw);
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.matrixModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.matrixModalHeader h3 {
+  margin: 0;
+  font-size: 0.92rem;
+  color: var(--ink-900);
+}
+
+.matrixModalCloseBtn {
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 43, 43, 0.32);
+  background: rgba(159, 43, 43, 0.12);
+  color: #8f2d2d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.matrixModalBody {
+  max-height: calc(90vh - 58px);
+  overflow: auto;
+}
+
+.matrixModalBody .matrixCard {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  max-width: none;
+}
+
+.matrixControlGrid {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.matrixControlItem {
+  display: grid;
+  gap: 5px;
+}
+
+.matrixControlLabel {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.matrixControlItem select,
+.matrixControlItem input {
+  height: 34px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--ink-900);
+  padding: 0 9px;
+  font-size: 0.76rem;
+}
+
+.matrixToolbar {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.matrixActionBtn {
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(12, 140, 131, 0.34);
+  background: rgba(12, 140, 131, 0.12);
+  color: var(--teal-600);
+  font-size: 0.75rem;
+  font-weight: 800;
+  padding: 0 11px;
+  cursor: pointer;
+}
+
+.matrixActionBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.matrixTableWrap {
+  margin-top: 10px;
+  overflow: auto;
+  border: 1px solid var(--line-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.matrixTable {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 920px;
+  font-size: 0.72rem;
+}
+
+.matrixTable th,
+.matrixTable td {
+  border-bottom: 1px solid rgba(46, 38, 31, 0.1);
+  padding: 6px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.matrixTable th {
+  background: rgba(46, 88, 166, 0.1);
+  color: var(--ink-900);
+  font-weight: 800;
+}
+
+.matrixRowHeader {
+  text-align: left !important;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.matrixTotalCell {
+  font-weight: 800;
+  background: rgba(216, 143, 40, 0.12);
+}

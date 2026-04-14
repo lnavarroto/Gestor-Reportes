@@ -1,0 +1,56 @@
+/* ============================================================================
+   MODALES
+   ============================================================================ */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.5);
+  z-index: 1200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.modalCard {
+  width: min(920px, 95vw);
+  max-height: 85vh;
+  background: #fff;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-900);
+}
+
+.modalCloseBtn {
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 43, 43, 0.32);
+  background: rgba(159, 43, 43, 0.12);
+  color: #8f2d2d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.modalBodyScroll {
+  padding: 12px;
+  max-height: calc(85vh - 58px);
+  overflow: auto;
+}

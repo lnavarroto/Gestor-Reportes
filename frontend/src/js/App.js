@@ -113,6 +113,26 @@ function App() {
   const [matrixExporting, setMatrixExporting] = useState(false);
   const [showMatrixModal, setShowMatrixModal] = useState(false);
   const [especialistasSeleccionados, setEspecialistasSeleccionados] = useState([]);
+  const [backendOnline, setBackendOnline] = useState(true);
+  const [checkingBackend, setCheckingBackend] = useState(true);
+
+  // Verificar conexión con backend al montar
+  useEffect(() => {
+    const verificarConexion = async () => {
+      try {
+        await axios.get(`${API_URL}/health`, { timeout: 3000 });
+        setBackendOnline(true);
+      } catch (_error) {
+        setBackendOnline(false);
+      } finally {
+        setCheckingBackend(false);
+      }
+    };
+    verificarConexion();
+    // Chequear cada 30 segundos
+    const interval = setInterval(verificarConexion, 30000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     window.localStorage.setItem(
@@ -625,12 +645,25 @@ function App() {
     return lista;
   }, [archivo, analizandoMaterias, hayMateriasAdicionales, modoFiltroMaterias, materiasPersonalizadas.length, cargando]);
 
-  const resumenFiltro =
-    !hayMateriasAdicionales || modoFiltroMaterias === "all"
-      ? "Todas las materias detectadas"
-      : modoFiltroMaterias === "default"
-      ? `Predeterminadas (${mergeMaterias(materiasPredeterminadas).length})`
-      : `Manual (${materiasPersonalizadas.length})`;
+  const todosEspecialistas = vistaPrevia.porEspecialista.map((item) => item.especialista);
+  const hayFiltroEspecialistasActual =
+    todosEspecialistas.length > 0 &&
+    especialistasSeleccionados.length !== todosEspecialistas.length;
+
+  const resumenFiltro = (() => {
+    const partes = [];
+    if (!hayMateriasAdicionales || modoFiltroMaterias === "all") {
+      partes.push("Todas las materias");
+    } else if (modoFiltroMaterias === "default") {
+      partes.push(`${mergeMaterias(materiasPredeterminadas).length} materias`);
+    } else {
+      partes.push(`${materiasPersonalizadas.length} materias`);
+    }
+    if (hayFiltroEspecialistasActual) {
+      partes.push(`${especialistasSeleccionados.length}/${todosEspecialistas.length} especialistas`);
+    }
+    return partes.join(" • ");
+  })();
 
   const especialistasPreview = mostrarTodosEspecialistas
     ? vistaPrevia.porEspecialista
@@ -647,6 +680,8 @@ function App() {
         temaOscuro={temaOscuro}
         onToggleTheme={() => setTemaOscuro((prev) => !prev)}
         pasos={pasos}
+        backendOnline={backendOnline}
+        checkingBackend={checkingBackend}
       />
 
       <main className={styles.layout}>
@@ -713,6 +748,7 @@ function App() {
           onToggleEspecialista={toggleEspecialista}
           onSeleccionarTodosEspecialistas={seleccionarTodosEspecialistas}
           onDeseleccionarTodosEspecialistas={deseleccionarTodosEspecialistas}
+          hayFiltroEspecialistasActual={hayFiltroEspecialistasActual}
         />
       </main>
 

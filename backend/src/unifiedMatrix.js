@@ -337,6 +337,10 @@ function normalizeMateria(value) {
 		.replace(/[\u0300-\u036f]/g, "")
 		.trim();
 	if (!t) return "SIN MATERIA";
+	
+	// Filtrar meses: nunca son materias
+	if (MONTHS_ORDER[t]) return "SIN MATERIA";
+	
 	if (t === "e") return "CIVIL";
 	if (t === "f") return "LABORAL";
 	if (t === "fc") return "FAMILIA CIVIL";

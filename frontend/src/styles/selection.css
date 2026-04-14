@@ -1,0 +1,158 @@
+/* ============================================================================
+   HERRAMIENTAS DE SELECCIÓN Y ESPECIALISTAS
+   ============================================================================ */
+
+.selectionToolbar {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.selectionHelp {
+  font-size: 0.74rem;
+  color: var(--ink-700);
+}
+
+.selectionCount {
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.4);
+  padding: 4px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.selectionChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.selectionChipInactive {
+  opacity: 0.72;
+}
+
+.selectionChipMark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 18px;
+  border-radius: 7px;
+  border: 1px solid var(--line-soft);
+  font-size: 0.63rem;
+  font-weight: 800;
+}
+
+/* Fila de especialista con checkbox */
+.previewRowEsp {
+  display: grid;
+  grid-template-columns: 22px 22px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.73rem;
+  background: rgba(248, 243, 234, 0.75);
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  border-radius: 8px;
+  padding: 5px 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.14s, border-color 0.14s, opacity 0.14s;
+}
+
+.previewRowEsp:hover {
+  background: rgba(12, 140, 131, 0.08);
+  border-color: rgba(12, 140, 131, 0.3);
+}
+
+.previewRowEspInactivo {
+  opacity: 0.4;
+  background: rgba(248, 243, 234, 0.4);
+}
+
+.previewRowEspInactivo:hover {
+  opacity: 0.75;
+  background: rgba(12, 140, 131, 0.06);
+}
+
+/* Indicador visual del check */
+.especialistaCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(46, 38, 31, 0.28);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: transparent;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  flex-shrink: 0;
+}
+
+.especialistaCheckOn {
+  border-color: var(--teal-500);
+  background: var(--teal-500);
+  color: #fff;
+}
+
+/* Botones de acción Todos/Ninguno */
+.especialistaFilterActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.especialistaActionBtn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(46, 38, 31, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink-700);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.especialistaActionBtn:hover {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(12, 140, 131, 0.4);
+  color: var(--teal-600);
+}
+
+.especialistaActionBtnActive {
+  background: rgba(12, 140, 131, 0.15);
+  border-color: var(--teal-500);
+  color: var(--teal-600);
+}
+
+.especialistaFilterHint {
+  font-size: 0.65rem;
+  color: var(--ink-500);
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Badge de filtro activo */
+.previewFilterBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(216, 143, 40, 0.18);
+  border: 1px solid rgba(216, 143, 40, 0.4);
+  color: var(--sun-600);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}

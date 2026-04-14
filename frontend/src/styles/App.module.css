@@ -1,4 +1,13 @@
-﻿:root {
+﻿
+/* ============================================================ */
+/* MODULO: variables.css */
+/* ============================================================ */
+
+/* ============================================================================
+   VARIABLES Y COLORES COMPARTIDOS
+   ============================================================================ */
+
+:root {
   --bg-paper: #f8f3ea;
   --bg-warm: #f2eadf;
   --ink-900: #1e1b18;
@@ -15,6 +24,15 @@
   --err-500: #9f2b2b;
   --info-500: #245f9a;
 }
+
+
+/* ============================================================ */
+/* MODULO: base.css */
+/* ============================================================ */
+
+/* ============================================================================
+   ESTILOS BASE DEL APP
+   ============================================================================ */
 
 .app {
   min-height: 100vh;
@@ -63,6 +81,44 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes softPop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.012);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flashAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================ */
+/* MODULO: header.css */
+/* ============================================================ */
+
+/* ============================================================================
+   HEADER Y NAVEGACIÓN
+   ============================================================================ */
 
 .header {
   margin-bottom: 18px;
@@ -124,6 +180,15 @@
   font-weight: 600;
 }
 
+
+/* ============================================================ */
+/* MODULO: steps.css */
+/* ============================================================ */
+
+/* ============================================================================
+   PASOS Y INDICADORES DE PROGRESO
+   ============================================================================ */
+
 .stepsGrid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -181,6 +246,15 @@
   background: rgba(255, 255, 255, 0.58);
 }
 
+
+/* ============================================================ */
+/* MODULO: layout.css */
+/* ============================================================ */
+
+/* ============================================================================
+   LAYOUT GENERAL Y CARDS
+   ============================================================================ */
+
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
@@ -233,36 +307,26 @@
   color: var(--ink-700);
 }
 
-.settingsButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  margin-left: auto;
-  border: 1px solid rgba(12, 140, 131, 0.35);
-  background: rgba(12, 140, 131, 0.1);
-  color: var(--teal-600);
-  border-radius: 10px;
-  padding: 7px 10px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  cursor: pointer;
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--line-soft), transparent);
+  margin: 20px 0;
 }
 
-.settingsButton:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.icon {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
 }
 
-.configSavedBadge {
-  border-radius: 999px;
-  padding: 4px 9px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  color: #0b756e;
-  border: 1px solid rgba(12, 140, 131, 0.38);
-  background: rgba(12, 140, 131, 0.12);
-  animation: flashAppear 0.98s ease;
-}
+
+/* ============================================================ */
+/* MODULO: upload.css */
+/* ============================================================ */
+
+/* ============================================================================
+   ZONA DE CARGA Y ARCHIVO
+   ============================================================================ */
 
 .uploadZone {
   border: 2px dashed rgba(12, 140, 131, 0.35);
@@ -274,6 +338,18 @@
   padding: 20px;
   position: relative;
   transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.uploadZone:hover,
+.uploadZoneActive {
+  border-color: var(--teal-500);
+  background: rgba(12, 140, 131, 0.08);
+}
+
+.uploadZoneDrag {
+  border-color: var(--teal-500);
+  background: rgba(12, 140, 131, 0.14);
+  box-shadow: 0 0 12px rgba(12, 140, 131, 0.2);
 }
 
 .emptyState {
@@ -296,12 +372,6 @@
 .emptyIcon {
   width: 30px;
   height: 30px;
-}
-
-.uploadZone:hover,
-.uploadZoneActive {
-  border-color: var(--teal-500);
-  background: rgba(12, 140, 131, 0.08);
 }
 
 .uploadIcon {
@@ -394,11 +464,14 @@
   font-weight: 700;
 }
 
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--line-soft), transparent);
-  margin: 20px 0;
-}
+
+/* ============================================================ */
+/* MODULO: format.css */
+/* ============================================================ */
+
+/* ============================================================================
+   FORMATO DE SALIDA
+   ============================================================================ */
 
 .formatGrid {
   display: grid;
@@ -451,6 +524,155 @@
   margin-bottom: 10px;
   font-size: 0.8rem;
   color: var(--ink-700);
+}
+
+
+/* ============================================================ */
+/* MODULO: buttons.css */
+/* ============================================================ */
+
+/* ============================================================================
+   BOTONES Y ESTADO
+   ============================================================================ */
+
+.submitBtn {
+  margin-top: 6px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  padding: 14px;
+  font-size: 0.92rem;
+  font-weight: 800;
+  cursor: pointer;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btnIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.submitPulse {
+  animation: softPop 0.98s ease;
+}
+
+.submitBtnExcel {
+  background: linear-gradient(130deg, #0c8c83, #0b756e);
+}
+
+.submitBtnPDF {
+  background: linear-gradient(130deg, #b6492c, #9b3f27);
+}
+
+.submitBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 999px;
+  animation: spin 0.7s linear infinite;
+}
+
+.statusMsg {
+  margin-top: 12px;
+  border-radius: 11px;
+  padding: 10px 12px;
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.statusMsgOk {
+  color: var(--ok-500);
+  border: 1px solid rgba(31, 143, 86, 0.25);
+  background: rgba(31, 143, 86, 0.08);
+}
+
+.statusMsgError {
+  color: var(--err-500);
+  border: 1px solid rgba(159, 43, 43, 0.25);
+  background: rgba(159, 43, 43, 0.08);
+}
+
+.statusMsgInfo {
+  color: var(--info-500);
+  border: 1px solid rgba(36, 95, 154, 0.24);
+  background: rgba(36, 95, 154, 0.08);
+}
+
+.statusIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 19px;
+  height: 19px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.74rem;
+}
+
+.statusDetailList {
+  margin: 7px 0 0;
+  padding-left: 17px;
+  display: grid;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+
+/* ============================================================ */
+/* MODULO: settings.css */
+/* ============================================================ */
+
+/* ============================================================================
+   CONFIGURACIÓN Y FILTROS
+   ============================================================================ */
+
+.settingsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  border: 1px solid rgba(12, 140, 131, 0.35);
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+  border-radius: 10px;
+  padding: 7px 10px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.settingsButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.configSavedBadge {
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #0b756e;
+  border: 1px solid rgba(12, 140, 131, 0.38);
+  background: rgba(12, 140, 131, 0.12);
+  animation: flashAppear 0.98s ease;
 }
 
 .settingsPanel {
@@ -568,32 +790,6 @@
   color: var(--ink-700);
 }
 
-.extraMateriasRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.extraMateriaTag {
-  border-radius: 999px;
-  border: 1px solid rgba(12, 140, 131, 0.45);
-  background: rgba(12, 140, 131, 0.12);
-  padding: 6px 10px;
-  font-size: 0.72rem;
-  font-weight: 800;
-}
-
-.extraMateriaTagBase {
-  border-radius: 999px;
-  border: 1px solid rgba(46, 88, 166, 0.45);
-  background: rgba(46, 88, 166, 0.1);
-  padding: 6px 10px;
-  font-size: 0.72rem;
-  font-weight: 800;
-  color: #1a3a7a;
-}
-
 .modeGrid {
   margin-top: 12px;
   display: grid;
@@ -634,6 +830,41 @@
   font-size: 0.7rem;
   color: var(--ink-700);
 }
+
+.extraMateriasRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.extraMateriaTag {
+  border-radius: 999px;
+  border: 1px solid rgba(12, 140, 131, 0.45);
+  background: rgba(12, 140, 131, 0.12);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.extraMateriaTagBase {
+  border-radius: 999px;
+  border: 1px solid rgba(46, 88, 166, 0.45);
+  background: rgba(46, 88, 166, 0.1);
+  padding: 6px 10px;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #1a3a7a;
+}
+
+
+/* ============================================================ */
+/* MODULO: selection.css */
+/* ============================================================ */
+
+/* ============================================================================
+   HERRAMIENTAS DE SELECCIÓN Y ESPECIALISTAS
+   ============================================================================ */
 
 .selectionToolbar {
   margin-top: 10px;
@@ -679,180 +910,125 @@
   font-weight: 800;
 }
 
-.submitBtn {
-  margin-top: 6px;
-  width: 100%;
-  border: none;
-  border-radius: 12px;
-  padding: 14px;
-  font-size: 0.92rem;
-  font-weight: 800;
-  cursor: pointer;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.btnIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.9rem;
-  line-height: 1;
-}
-
-.icon {
-  width: 14px;
-  height: 14px;
-  flex: 0 0 auto;
-}
-
-.submitPulse {
-  animation: softPop 0.98s ease;
-}
-
-.submitBtnExcel {
-  background: linear-gradient(130deg, #0c8c83, #0b756e);
-}
-
-.submitBtnPDF {
-  background: linear-gradient(130deg, #b6492c, #9b3f27);
-}
-
-.submitBtn:disabled {
-  opacity: 0.45;
-  cursor: not-allowed;
-}
-
-.spinner {
-  width: 14px;
-  height: 14px;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  border-top-color: #fff;
-  border-radius: 999px;
-  animation: spin 0.7s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes softPop {
-  0% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(1.012);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-@keyframes flashAppear {
-  0% {
-    opacity: 0;
-    transform: translateY(3px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.statusMsg {
-  margin-top: 12px;
-  border-radius: 11px;
-  padding: 10px 12px;
-  display: flex;
-  gap: 9px;
-  align-items: flex-start;
-  font-size: 0.82rem;
-  font-weight: 700;
-}
-
-.statusMsgOk {
-  color: var(--ok-500);
-  border: 1px solid rgba(31, 143, 86, 0.25);
-  background: rgba(31, 143, 86, 0.08);
-}
-
-.statusMsgError {
-  color: var(--err-500);
-  border: 1px solid rgba(159, 43, 43, 0.25);
-  background: rgba(159, 43, 43, 0.08);
-}
-
-.statusMsgInfo {
-  color: var(--info-500);
-  border: 1px solid rgba(36, 95, 154, 0.24);
-  background: rgba(36, 95, 154, 0.08);
-}
-
-.statusIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 19px;
-  height: 19px;
-  border-radius: 999px;
-  border: 1px solid currentColor;
-  font-size: 0.74rem;
-}
-
-.statusDetailList {
-  margin: 7px 0 0;
-  padding-left: 17px;
+/* Fila de especialista con checkbox */
+.previewRowEsp {
   display: grid;
-  gap: 4px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.summaryTitle {
-  font-size: 0.96rem;
-  font-weight: 800;
-}
-
-.summaryHint {
-  margin-top: 5px;
-  margin-bottom: 12px;
-  font-size: 0.78rem;
-  color: var(--ink-700);
-}
-
-.excelDetailsLauncher {
-  margin-top: 6px;
-  margin-bottom: 4px;
-}
-
-.excelDetailsBtn {
-  border: 0;
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.01em;
-  color: #ffffff;
-  background: linear-gradient(120deg, #0f766e, #0e7490);
+  grid-template-columns: 22px 22px minmax(0, 1fr) 44px;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.73rem;
+  background: rgba(248, 243, 234, 0.75);
+  border: 1px solid rgba(46, 38, 31, 0.1);
+  border-radius: 8px;
+  padding: 5px 6px;
   cursor: pointer;
-  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
-  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.25);
+  user-select: none;
+  transition: background 0.14s, border-color 0.14s, opacity 0.14s;
 }
 
-.excelDetailsBtn:hover {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
+.previewRowEsp:hover {
+  background: rgba(12, 140, 131, 0.08);
+  border-color: rgba(12, 140, 131, 0.3);
 }
 
-.excelDetailsBtn:active {
-  transform: translateY(0);
+.previewRowEspInactivo {
+  opacity: 0.4;
+  background: rgba(248, 243, 234, 0.4);
 }
+
+.previewRowEspInactivo:hover {
+  opacity: 0.75;
+  background: rgba(12, 140, 131, 0.06);
+}
+
+/* Indicador visual del check */
+.especialistaCheck {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  border: 1.5px solid rgba(46, 38, 31, 0.28);
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 0.62rem;
+  font-weight: 900;
+  color: transparent;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+  flex-shrink: 0;
+}
+
+.especialistaCheckOn {
+  border-color: var(--teal-500);
+  background: var(--teal-500);
+  color: #fff;
+}
+
+/* Botones de acción Todos/Ninguno */
+.especialistaFilterActions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.especialistaActionBtn {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(46, 38, 31, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  color: var(--ink-700);
+  border-radius: 999px;
+  padding: 3px 10px;
+  font-size: 0.67rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.12s, border-color 0.12s, color 0.12s;
+}
+
+.especialistaActionBtn:hover {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(12, 140, 131, 0.4);
+  color: var(--teal-600);
+}
+
+.especialistaActionBtnActive {
+  background: rgba(12, 140, 131, 0.15);
+  border-color: var(--teal-500);
+  color: var(--teal-600);
+}
+
+.especialistaFilterHint {
+  font-size: 0.65rem;
+  color: var(--ink-500);
+  font-weight: 600;
+  margin-left: 2px;
+}
+
+/* Badge de filtro activo */
+.previewFilterBadge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(216, 143, 40, 0.18);
+  border: 1px solid rgba(216, 143, 40, 0.4);
+  color: var(--sun-600);
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.6rem;
+  font-weight: 800;
+  margin-left: 6px;
+  letter-spacing: 0.04em;
+}
+
+
+/* ============================================================ */
+/* MODULO: preview.css */
+/* ============================================================ */
+
+/* ============================================================================
+   PANEL DE VISTA PREVIA
+   ============================================================================ */
 
 .previewPanel {
   margin-top: 10px;
@@ -966,115 +1142,168 @@
   padding: 4px 6px;
 }
 
-/* Fila de especialista con checkbox */
-.previewRowEsp {
-  display: grid;
-  grid-template-columns: 22px 22px minmax(0, 1fr) 44px;
+.previewRowMain {
+  display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-size: 0.73rem;
-  background: rgba(248, 243, 234, 0.75);
-  border: 1px solid rgba(46, 38, 31, 0.1);
-  border-radius: 8px;
-  padding: 5px 6px;
-  cursor: pointer;
-  user-select: none;
-  transition: background 0.14s, border-color 0.14s, opacity 0.14s;
+  min-width: 0;
+  gap: 7px;
+  flex: 1;
 }
 
-.previewRowEsp:hover {
-  background: rgba(12, 140, 131, 0.08);
-  border-color: rgba(12, 140, 131, 0.3);
+.previewName {
+  flex: 1;
+  min-width: 0;
+  color: var(--ink-700);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }
 
-.previewRowEspInactivo {
-  opacity: 0.4;
-  background: rgba(248, 243, 234, 0.4);
-}
-
-.previewRowEspInactivo:hover {
-  opacity: 0.75;
-  background: rgba(12, 140, 131, 0.06);
-}
-
-/* Indicador visual del check */
-.especialistaCheck {
+.previewRank {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 18px;
-  height: 18px;
-  border-radius: 5px;
-  border: 1.5px solid rgba(46, 38, 31, 0.28);
-  background: rgba(255, 255, 255, 0.6);
-  font-size: 0.62rem;
-  font-weight: 900;
-  color: transparent;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-  flex-shrink: 0;
-}
-
-.especialistaCheckOn {
-  border-color: var(--teal-500);
-  background: var(--teal-500);
-  color: #fff;
-}
-
-/* Botones de acción Todos/Ninguno */
-.especialistaFilterActions {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  margin-bottom: 6px;
-  flex-wrap: wrap;
-}
-
-.especialistaActionBtn {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid rgba(46, 38, 31, 0.22);
-  background: rgba(255, 255, 255, 0.65);
-  color: var(--ink-700);
+  min-width: 19px;
+  height: 19px;
   border-radius: 999px;
-  padding: 3px 10px;
-  font-size: 0.67rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background 0.12s, border-color 0.12s, color 0.12s;
-}
-
-.especialistaActionBtn:hover {
-  background: rgba(12, 140, 131, 0.12);
-  border-color: rgba(12, 140, 131, 0.4);
-  color: var(--teal-600);
-}
-
-.especialistaActionBtnActive {
-  background: rgba(12, 140, 131, 0.15);
-  border-color: var(--teal-500);
-  color: var(--teal-600);
-}
-
-.especialistaFilterHint {
-  font-size: 0.65rem;
-  color: var(--ink-500);
-  font-weight: 600;
-  margin-left: 2px;
-}
-
-/* Badge de filtro activo */
-.previewFilterBadge {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(216, 143, 40, 0.18);
-  border: 1px solid rgba(216, 143, 40, 0.4);
-  color: var(--sun-600);
-  border-radius: 999px;
-  padding: 1px 7px;
-  font-size: 0.6rem;
+  background: rgba(46, 88, 166, 0.12);
+  border: 1px solid rgba(46, 88, 166, 0.3);
+  color: #1a3a7a;
+  font-size: 0.63rem;
   font-weight: 800;
-  margin-left: 6px;
-  letter-spacing: 0.04em;
+}
+
+.previewTotal {
+  color: var(--ink-900);
+  min-width: 44px;
+  text-align: right;
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+
+
+/* ============================================================ */
+/* MODULO: summary.css */
+/* ============================================================ */
+
+/* ============================================================================
+   KPI Y RESUMEN
+   ============================================================================ */
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.kpiItem {
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 9px;
+}
+
+.kpiLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.kpiValue {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.summaryTitle {
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.summaryHint {
+  margin-top: 5px;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-700);
+}
+
+.summaryBlock {
+  margin-top: 11px;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 10px;
+}
+
+.summaryBlockLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.summaryBlockText,
+.summaryBlockTextMuted {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.summaryBlockTextMuted {
+  color: var(--ink-700);
+}
+
+.summaryFooter {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(216, 143, 40, 0.12);
+  border: 1px solid rgba(216, 143, 40, 0.24);
+  font-size: 0.76rem;
+  color: #7a4c07;
+}
+
+
+/* ============================================================ */
+/* MODULO: excel.css */
+/* ============================================================ */
+
+/* ============================================================================
+   EXCEL INSIGHTS Y DETALLES
+   ============================================================================ */
+
+.excelDetailsLauncher {
+  margin-top: 6px;
+  margin-bottom: 4px;
+}
+
+.excelDetailsBtn {
+  border: 0;
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  background: linear-gradient(120deg, #0f766e, #0e7490);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  box-shadow: 0 10px 22px rgba(15, 118, 110, 0.25);
+}
+
+.excelDetailsBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.excelDetailsBtn:active {
+  transform: translateY(0);
 }
 
 .excelInsightsGrid {
@@ -1203,59 +1432,6 @@
   cursor: pointer;
 }
 
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 12, 18, 0.5);
-  z-index: 1200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 18px;
-}
-
-.modalCard {
-  width: min(920px, 95vw);
-  max-height: 85vh;
-  background: #fff;
-  border: 1px solid var(--line-soft);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
-.modalHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 12px 14px;
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.modalHeader h3 {
-  margin: 0;
-  font-size: 0.9rem;
-  color: var(--ink-900);
-}
-
-.modalCloseBtn {
-  height: 30px;
-  border-radius: 8px;
-  border: 1px solid rgba(159, 43, 43, 0.32);
-  background: rgba(159, 43, 43, 0.12);
-  color: #8f2d2d;
-  font-size: 0.72rem;
-  font-weight: 800;
-  padding: 0 10px;
-  cursor: pointer;
-}
-
-.modalBodyScroll {
-  padding: 12px;
-  max-height: calc(85vh - 58px);
-  overflow: auto;
-}
-
 .excelMetaGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1369,129 +1545,76 @@
   color: var(--ink-500);
 }
 
-.previewRowMain {
-  display: inline-flex;
-  align-items: center;
-  min-width: 0;
-  gap: 7px;
-  flex: 1;
-}
 
-.previewName {
-  flex: 1;
-  min-width: 0;
-  color: var(--ink-700);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  display: block;
-}
+/* ============================================================ */
+/* MODULO: modal.css */
+/* ============================================================ */
 
-.previewRank {
-  display: inline-flex;
+/* ============================================================================
+   MODALES
+   ============================================================================ */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 12, 18, 0.5);
+  z-index: 1200;
+  display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 19px;
-  height: 19px;
-  border-radius: 999px;
-  background: rgba(46, 88, 166, 0.12);
-  border: 1px solid rgba(46, 88, 166, 0.3);
-  color: #1a3a7a;
-  font-size: 0.63rem;
-  font-weight: 800;
+  padding: 18px;
 }
 
-.previewTotal {
-  color: var(--ink-900);
-  min-width: 44px;
-  text-align: right;
-  flex: 0 0 auto;
-  font-variant-numeric: tabular-nums;
-  font-weight: 800;
-}
-
-.kpiGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.kpiItem {
-  border: 1px solid var(--line-soft);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.88);
-  padding: 9px;
-}
-
-.kpiLabel {
-  display: block;
-  color: var(--ink-500);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 800;
-}
-
-.kpiValue {
-  display: block;
-  margin-top: 5px;
-  font-size: 0.9rem;
-}
-
-.summaryBlock {
-  margin-top: 11px;
-  border-top: 1px dashed var(--line-soft);
-  padding-top: 10px;
-}
-
-.summaryBlockLabel {
-  display: block;
-  color: var(--ink-500);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  font-weight: 800;
-}
-
-.summaryBlockText,
-.summaryBlockTextMuted {
-  display: block;
-  margin-top: 4px;
-  font-size: 0.82rem;
-  line-height: 1.45;
-}
-
-.summaryBlockTextMuted {
-  color: var(--ink-700);
-}
-
-.summaryFooter {
-  margin-top: 12px;
-  padding: 10px;
-  border-radius: 10px;
-  background: rgba(216, 143, 40, 0.12);
-  border: 1px solid rgba(216, 143, 40, 0.24);
-  font-size: 0.76rem;
-  color: #7a4c07;
-}
-
-.footer {
-  margin-top: 18px;
-  text-align: center;
-  color: var(--ink-500);
-  font-size: 0.74rem;
-}
-
-.authorSection {
-  position: relative;
-  z-index: 1;
-  max-width: 1160px;
-  margin: 18px auto 0;
+.modalCard {
+  width: min(920px, 95vw);
+  max-height: 85vh;
+  background: #fff;
   border: 1px solid var(--line-soft);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.72);
-  padding: 12px 14px;
+  overflow: hidden;
 }
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.modalHeader h3 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-900);
+}
+
+.modalCloseBtn {
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid rgba(159, 43, 43, 0.32);
+  background: rgba(159, 43, 43, 0.12);
+  color: #8f2d2d;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+.modalBodyScroll {
+  padding: 12px;
+  max-height: calc(85vh - 58px);
+  overflow: auto;
+}
+
+
+/* ============================================================ */
+/* MODULO: matrix.css */
+/* ============================================================ */
+
+/* ============================================================================
+   MATRIZ DINÁMICA
+   ============================================================================ */
 
 .matrixCard {
   position: relative;
@@ -1679,6 +1802,33 @@
   background: rgba(216, 143, 40, 0.12);
 }
 
+
+/* ============================================================ */
+/* MODULO: footer.css */
+/* ============================================================ */
+
+/* ============================================================================
+   PIE DE PÁGINA Y AUTOR
+   ============================================================================ */
+
+.footer {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--ink-500);
+  font-size: 0.74rem;
+}
+
+.authorSection {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 18px auto 0;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.72);
+  padding: 12px 14px;
+}
+
 .authorTitle {
   display: inline-flex;
   align-items: center;
@@ -1693,6 +1843,15 @@
   font-size: 0.74rem;
   color: var(--ink-700);
 }
+
+
+/* ============================================================ */
+/* MODULO: theme-dark.css */
+/* ============================================================ */
+
+/* ============================================================================
+   TEMA OSCURO
+   ============================================================================ */
 
 .appDark {
   --bg-paper: #14191d;
@@ -1993,6 +2152,15 @@
   background: rgba(74, 213, 198, 0.42);
 }
 
+
+/* ============================================================ */
+/* MODULO: responsive.css */
+/* ============================================================ */
+
+/* ============================================================================
+   MEDIA QUERIES - RESPONSIVE DESIGN
+   ============================================================================ */
+
 @media (max-width: 1024px) {
   .layout {
     grid-template-columns: 1fr;
@@ -2040,4 +2208,17 @@
   .summaryCard {
     padding: 18px;
   }
+
+  .kpiGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .excelMetaGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .previewRowEsp {
+    grid-template-columns: 22px minmax(0, 1fr) 44px;
+  }
 }
+

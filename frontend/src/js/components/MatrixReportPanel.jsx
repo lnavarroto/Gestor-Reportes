@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function MatrixReportPanel({
   styles,
@@ -15,6 +15,11 @@ function MatrixReportPanel({
   onBuild,
   onExport,
 }) {
+  useEffect(() => {
+    if (visible && !matrixData && !loading) {
+      onBuild();
+    }
+  }, [visible, matrixData, loading, onBuild]);
   if (!visible) return null;
 
   const leafColumns = matrixData?.leafColumns || [];

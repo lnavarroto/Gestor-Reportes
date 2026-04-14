@@ -1,0 +1,80 @@
+/* ============================================================================
+   ESTILOS BASE DEL APP
+   ============================================================================ */
+
+.app {
+  min-height: 100vh;
+  padding: 36px 18px 56px;
+  font-family: "Trebuchet MS", "Segoe UI", Tahoma, sans-serif;
+  color: var(--ink-900);
+  background:
+    radial-gradient(1200px 400px at 15% -10%, rgba(216, 143, 40, 0.18), transparent 60%),
+    radial-gradient(1000px 420px at 100% 10%, rgba(12, 140, 131, 0.16), transparent 58%),
+    linear-gradient(165deg, var(--bg-paper), var(--bg-warm));
+  position: relative;
+}
+
+.bgOrbA,
+.bgOrbB {
+  position: fixed;
+  border-radius: 999px;
+  filter: blur(28px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bgOrbA {
+  width: 280px;
+  height: 280px;
+  background: rgba(216, 143, 40, 0.2);
+  left: -90px;
+  top: 120px;
+}
+
+.bgOrbB {
+  width: 320px;
+  height: 320px;
+  background: rgba(12, 140, 131, 0.18);
+  right: -110px;
+  top: 320px;
+}
+
+.header,
+.stepsGrid,
+.layout,
+.footer {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes softPop {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.012);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flashAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

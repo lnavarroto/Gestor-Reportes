@@ -1,0 +1,302 @@
+/* ============================================================================
+   TEMA OSCURO
+   ============================================================================ */
+
+.appDark {
+  --bg-paper: #14191d;
+  --bg-warm: #192128;
+  --ink-900: #e7ddd1;
+  --ink-700: #c5b9ab;
+  --ink-500: #aa9b8d;
+  --line-soft: rgba(231, 221, 209, 0.14);
+  --line-strong: rgba(231, 221, 209, 0.24);
+}
+
+.appDark .card,
+.appDark .summaryCard,
+.appDark .stepLocked,
+.appDark .formatCard,
+.appDark .settingsPanel,
+.appDark .kpiItem,
+.appDark .fileChip,
+.appDark .modeCard {
+  background: rgba(24, 31, 36, 0.74);
+}
+
+.appDark .uploadZone:hover,
+.appDark .uploadZoneActive {
+  background: rgba(12, 140, 131, 0.14);
+}
+
+.appDark .summaryFooter {
+  color: #f3d39d;
+}
+
+.appDark .authorSection {
+  background: rgba(24, 31, 36, 0.74);
+}
+
+.appDark .headerBadge,
+.appDark .themeToggle {
+  background: rgba(24, 31, 36, 0.86);
+  color: var(--ink-900);
+}
+
+.appDark .matrixCard,
+.appDark .matrixTableWrap,
+.appDark .matrixControlItem select,
+.appDark .matrixControlItem input {
+  background: rgba(24, 31, 36, 0.82);
+  border-color: rgba(231, 221, 209, 0.22);
+  color: var(--ink-900);
+}
+
+.appDark .matrixOpenBtn {
+  background: rgba(12, 140, 131, 0.22);
+  border-color: rgba(74, 213, 198, 0.45);
+  color: #a8f6ee;
+}
+
+.appDark .matrixModalCard {
+  background: rgba(24, 31, 36, 0.98);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .matrixModalHeader,
+.appDark .matrixModalHeader h3 {
+  color: #c5b9ab;
+  border-color: rgba(231, 221, 209, 0.18);
+}
+
+.appDark .matrixModalCloseBtn {
+  background: rgba(159, 43, 43, 0.22);
+  border-color: rgba(222, 128, 128, 0.4);
+  color: #ffc6c6;
+}
+
+.appDark .matrixTable th {
+  background: rgba(46, 88, 166, 0.24);
+}
+
+.appDark .matrixTable th,
+.appDark .matrixTable td,
+.appDark .matrixControlLabel {
+  color: #c5b9ab;
+}
+
+.appDark .matrixTotalCell {
+  background: rgba(216, 143, 40, 0.18);
+}
+
+.appDark .headerSubtitle,
+.appDark .uploadHint,
+.appDark .previewSubTitle,
+.appDark .prevalidacionText,
+.appDark .prevalidacionList,
+.appDark .statusDetailList,
+.appDark .summaryHint,
+.appDark .summaryBlockTextMuted,
+.appDark .filterHint,
+.appDark .selectionHelp,
+.appDark .authorHint {
+  color: #b9ab9d;
+}
+
+.appDark .fileChipRemove,
+.appDark .filterReset,
+.appDark .selectionChipMark {
+  background: rgba(18, 24, 29, 0.92);
+  color: var(--ink-900);
+}
+
+.appDark .detectionPanel {
+  border-color: rgba(74, 213, 198, 0.42);
+  background: linear-gradient(145deg, rgba(12, 140, 131, 0.22), rgba(216, 143, 40, 0.14));
+}
+
+.appDark .excelMetaItem,
+.appDark .excelTableWrap,
+.appDark .excelSheetCard,
+.appDark .excelFieldCard {
+  background: rgba(20, 27, 33, 0.92);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .excelPreviewTable th {
+  background: rgba(12, 140, 131, 0.24);
+}
+
+.appDark .excelPreviewTable th,
+.appDark .excelPreviewTable td,
+.appDark .excelMetaValue,
+.appDark .excelTagTitle,
+.appDark .excelEmpty,
+.appDark .excelDiscardedRow {
+  color: #c5b9ab;
+}
+
+.appDark .excelTag {
+  background: rgba(12, 140, 131, 0.18);
+  border-color: rgba(74, 213, 198, 0.4);
+}
+
+.appDark .excelTagMuted {
+  background: rgba(231, 221, 209, 0.08);
+  border-color: rgba(231, 221, 209, 0.2);
+}
+
+.appDark .excelShowMoreBtn {
+  background: rgba(46, 88, 166, 0.2);
+  border-color: rgba(117, 157, 229, 0.45);
+  color: #b3cbff;
+}
+
+.appDark .excelDetailsBtn {
+  background: linear-gradient(120deg, #14b8a6, #0891b2);
+  box-shadow: 0 10px 22px rgba(20, 184, 166, 0.28);
+}
+
+.appDark .modalCard {
+  background: rgba(24, 31, 36, 0.98);
+  border-color: rgba(231, 221, 209, 0.22);
+}
+
+.appDark .modalHeader,
+.appDark .modalHeader h3 {
+  color: #c5b9ab;
+  border-color: rgba(231, 221, 209, 0.18);
+}
+
+.appDark .modalCloseBtn {
+  background: rgba(159, 43, 43, 0.22);
+  border-color: rgba(222, 128, 128, 0.4);
+  color: #ffc6c6;
+}
+
+.appDark .prevalidacionPanel,
+.appDark .previewPanel {
+  border-color: rgba(231, 221, 209, 0.22);
+  background: rgba(20, 27, 33, 0.92);
+}
+
+.appDark .prevalidacionOk {
+  border-color: rgba(56, 176, 110, 0.52);
+  background: rgba(18, 90, 58, 0.28);
+}
+
+.appDark .prevalidacionWarn {
+  border-color: rgba(224, 120, 82, 0.5);
+  background: rgba(116, 46, 29, 0.32);
+}
+
+.appDark .previewSection + .previewSection {
+  border-top-color: rgba(231, 221, 209, 0.2);
+}
+
+.appDark .previewCountBadge,
+.appDark .previewToggle,
+.appDark .selectionCount,
+.appDark .filterChipActive,
+.appDark .modeCardActive,
+.appDark .configSavedBadge,
+.appDark .extraMateriaTag {
+  border-color: rgba(74, 213, 198, 0.48);
+  background: rgba(12, 140, 131, 0.2);
+  color: #9ee9e2;
+}
+
+.appDark .extraMateriaTagBase,
+.appDark .previewRank {
+  border-color: rgba(122, 171, 255, 0.54);
+  background: rgba(74, 118, 196, 0.24);
+  color: #ccddff;
+}
+
+.appDark .previewRow {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .previewRowEsp {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .previewRowEsp:hover {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(74, 213, 198, 0.35);
+}
+
+.appDark .especialistaCheck {
+  background: rgba(28, 36, 43, 0.8);
+  border-color: rgba(231, 221, 209, 0.3);
+}
+
+.appDark .especialistaCheckOn {
+  background: var(--teal-500);
+  border-color: var(--teal-500);
+}
+
+.appDark .especialistaActionBtn {
+  background: rgba(28, 36, 43, 0.8);
+  border-color: rgba(231, 221, 209, 0.22);
+  color: #c5b9ab;
+}
+
+.appDark .especialistaActionBtnActive {
+  background: rgba(12, 140, 131, 0.22);
+  border-color: rgba(74, 213, 198, 0.5);
+  color: #9ee9e2;
+}
+
+.appDark .previewFilterBadge {
+  background: rgba(216, 143, 40, 0.2);
+  border-color: rgba(216, 143, 40, 0.45);
+  color: #f0c06a;
+}
+
+.appDark .excelFieldCard {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .excelSheetCard {
+  background: rgba(28, 36, 43, 0.9);
+  border-color: rgba(231, 221, 209, 0.16);
+}
+
+.appDark .excelFieldLabel,
+.appDark .excelWidgetName,
+.appDark .excelSheetName {
+  color: #f3e8da;
+}
+
+.appDark .excelFieldMeta,
+.appDark .excelFieldSample,
+.appDark .excelWidgetReason,
+.appDark .excelSheetMeta {
+  color: #cdbfb2;
+}
+
+.appDark .excelFieldColumn {
+  border-color: rgba(74, 213, 198, 0.48);
+  background: rgba(12, 140, 131, 0.2);
+  color: #9ee9e2;
+}
+
+.appDark .excelWidgetRow {
+  background: rgba(12, 140, 131, 0.12);
+  border-color: rgba(74, 213, 198, 0.24);
+}
+
+.appDark .previewName {
+  color: #d2c6b9;
+}
+
+.appDark .previewTotal {
+  color: #f3e8da;
+}
+
+.appDark .previewListScrollable::-webkit-scrollbar-thumb {
+  background: rgba(74, 213, 198, 0.42);
+}

@@ -1,0 +1,56 @@
+/* ============================================================================
+   FORMATO DE SALIDA
+   ============================================================================ */
+
+.formatGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.formatCard {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border: 1px solid var(--line-soft);
+  border-radius: 14px;
+  padding: 13px;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.18s ease;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.formatCard:hover {
+  transform: translateY(-1px);
+}
+
+.formatCard input {
+  display: none;
+}
+
+.formatName {
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.formatDesc {
+  font-size: 0.76rem;
+  color: var(--ink-500);
+}
+
+.formatCardActiveExcel {
+  border-color: rgba(31, 143, 86, 0.56);
+  background: rgba(31, 143, 86, 0.1);
+}
+
+.formatCardActivePDF {
+  border-color: rgba(182, 73, 44, 0.58);
+  background: rgba(182, 73, 44, 0.1);
+}
+
+.defaultSummary {
+  margin-top: 2px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  color: var(--ink-700);
+}

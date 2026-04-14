@@ -21,6 +21,7 @@ function SidebarSummary({
   onToggleEspecialista,
   onSeleccionarTodosEspecialistas,
   onDeseleccionarTodosEspecialistas,
+  hayFiltroEspecialistasActual,
 }) {
   return (
     <aside className={styles.summaryCard}>
@@ -71,6 +72,31 @@ function SidebarSummary({
         <span className={styles.summaryBlockLabel}>Filtro aplicado</span>
         <span className={styles.summaryBlockText}>{resumenFiltro}</span>
       </div>
+
+      {hayFiltroEspecialistasActual && (
+        <div
+          style={{
+            backgroundColor: "rgba(249, 115, 22, 0.1)",
+            border: "1px solid rgba(249, 115, 22, 0.3)",
+            borderRadius: "6px",
+            padding: "10px 12px",
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "8px",
+            marginBottom: "12px",
+          }}
+        >
+          <span style={{ fontSize: "16px", marginTop: "2px" }}>⚠️</span>
+          <div>
+            <p style={{ margin: "0 0 4px 0", fontSize: "12px", fontWeight: "600", color: "#ea580c" }}>
+              Filtro activo
+            </p>
+            <p style={{ margin: "0", fontSize: "11px", color: "#d97706" }}>
+              {especialistasSeleccionados.length} de {totalEspecialistas} especialistas seleccionados
+            </p>
+          </div>
+        </div>
+      )}
 
       <div className={styles.summaryBlock}>
         <span className={styles.summaryBlockLabel}>Nombre de archivo</span>

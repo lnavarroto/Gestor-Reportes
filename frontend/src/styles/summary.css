@@ -1,0 +1,80 @@
+/* ============================================================================
+   KPI Y RESUMEN
+   ============================================================================ */
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.kpiItem {
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.88);
+  padding: 9px;
+}
+
+.kpiLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.kpiValue {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.summaryTitle {
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+.summaryHint {
+  margin-top: 5px;
+  margin-bottom: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-700);
+}
+
+.summaryBlock {
+  margin-top: 11px;
+  border-top: 1px dashed var(--line-soft);
+  padding-top: 10px;
+}
+
+.summaryBlockLabel {
+  display: block;
+  color: var(--ink-500);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 800;
+}
+
+.summaryBlockText,
+.summaryBlockTextMuted {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.summaryBlockTextMuted {
+  color: var(--ink-700);
+}
+
+.summaryFooter {
+  margin-top: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(216, 143, 40, 0.12);
+  border: 1px solid rgba(216, 143, 40, 0.24);
+  font-size: 0.76rem;
+  color: #7a4c07;
+}

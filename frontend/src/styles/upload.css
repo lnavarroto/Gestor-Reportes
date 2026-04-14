@@ -1,0 +1,139 @@
+/* ============================================================================
+   ZONA DE CARGA Y ARCHIVO
+   ============================================================================ */
+
+.uploadZone {
+  border: 2px dashed rgba(12, 140, 131, 0.35);
+  border-radius: 16px;
+  min-height: 148px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.18s ease, background 0.18s ease;
+}
+
+.uploadZone:hover,
+.uploadZoneActive {
+  border-color: var(--teal-500);
+  background: rgba(12, 140, 131, 0.08);
+}
+
+.uploadZoneDrag {
+  border-color: var(--teal-500);
+  background: rgba(12, 140, 131, 0.14);
+  box-shadow: 0 0 12px rgba(12, 140, 131, 0.2);
+}
+
+.emptyState {
+  display: grid;
+  place-items: center;
+  gap: 6px;
+}
+
+.emptyIllustration {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  border: 1px solid rgba(12, 140, 131, 0.28);
+  background: linear-gradient(150deg, rgba(12, 140, 131, 0.15), rgba(216, 143, 40, 0.14));
+  display: grid;
+  place-items: center;
+  margin-bottom: 4px;
+}
+
+.emptyIcon {
+  width: 30px;
+  height: 30px;
+}
+
+.uploadIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: rgba(216, 143, 40, 0.15);
+  color: var(--sun-600);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+}
+
+.uploadText {
+  margin: 8px 0 2px;
+  font-size: 1rem;
+  color: var(--ink-900);
+  font-weight: 700;
+}
+
+.uploadHint {
+  margin: 0;
+  color: #6f6258;
+  font-size: 0.77rem;
+  font-weight: 600;
+}
+
+.fileInput {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fileChip {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+  background: rgba(255, 255, 255, 0.86);
+  padding: 10px 12px;
+}
+
+.fileChipPulse {
+  animation: softPop 0.82s ease;
+}
+
+.fileChipIcon {
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  background: rgba(12, 140, 131, 0.1);
+  color: var(--teal-600);
+}
+
+.fileChipInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.fileChipName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.fileChipSize {
+  font-size: 0.75rem;
+  color: var(--ink-500);
+}
+
+.fileChipRemove {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--line-soft);
+  background: #fff;
+  border-radius: 9px;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
